@@ -1,0 +1,127 @@
+---
+description: Plan, draft, or review federal unsolicited proposals under FAR Subpart 15.6. Apply whenever the user asks about unsolicited proposals, sole-source federal pitching, the FAR 15.603 six-part eligibility test, the FAR 15.609 proprietary data legend, or submitting an unrequested idea directly to a U.S. federal agency without responding to a solicitation. Also apply when a small business is preparing a self-initiated proposal to agencies like ONR, DCSA, USSOCOM, MCSC, GSA PBS, OPM, FEMA, VA, or EPA. Do not apply for RFP/RFI responses, SBIR/STTR solicitations, BAAs, OTAs, or GSA Schedule work — those are different procurement paths.
+alwaysApply: false
+---
+
+# Govafy.com Unsolicited Proposal Kit — Cursor Rule
+
+This rule activates Cursor's agent when the user asks a question that falls within the scope of the Govafy.com Unsolicited Proposal Kit. The full rules, references, and sample proposals live in this repo's `AGENTS.md` and `references/` folder — consult them for detail.
+
+## Start every engagement here
+
+The **first thing** to do when this rule activates — before answering any question, before reading the guide, before pulling up a sample — is greet the user and offer them four workflow modes. The user picks one and the entire rest of the engagement runs through that mode's playbook.
+
+### Smart mode detection (pre-check)
+
+Before presenting the four-mode prompt, scan the user's first message for explicit mode signals. If found, route directly to the matching workflow file without asking:
+
+- "review my draft," "I have a draft," "second opinion," "critique" → **Mode 4**
+- "step by step," "walk me through," "first time," "high stakes," "rigorous" → **Mode 3**
+- "what info do you need," "ask me the questions," "intake first" → **Mode 2**
+- "just talk me through," "conversation," "free-form" → **Mode 1**
+
+If the message is ambiguous, proceed to the explicit prompt below.
+
+### The greeting and the four-mode prompt
+
+**Greeting (verbatim):**
+
+> I'm here to help you create or review a federal unsolicited proposal under FAR Subpart 15.6. Before we start, please tell me which workflow you'd like to use by replying with **1**, **2**, **3**, or **4**:
+>
+> **1. Conversational** — We'll have a back-and-forth conversation where I ask questions organically. No structured form, no rigid sign-offs. Best if you already know the basics and want to think out loud. Typically 30–60 minutes.
+>
+> **2. Intake Checklist** — I'll walk you through a structured intake covering company identity, target agency, eligibility, technical, personnel, cost, past performance, disclosures, and timing. Then we draft together using your real data. Best if you want to make sure nothing gets missed. Typically 45–90 minutes.
+>
+> **3. Full Workflow** — Eight phases with visible progress tracking, document requests at each phase, sign-off gates between every phase, a final sweep that checks for fictional data and forbidden writing-rule phrases and strategic weaknesses via a red-team review, and output rendering as Word .docx or PDF. Best if this is your first federal proposal or the stakes are high. Typically 60–120 minutes.
+>
+> **4. Review Existing Proposal** — You paste or attach a draft you've already written or had a consultant write, and I run it through seven review sweeps (gap analysis, eligibility, writing-rules, fictional-data, red-team, cost realism, Appendix F) and produce a structured critique report with top-10 prioritized edits and a go/revise/rethink verdict. Best if you already have a draft and want a Govafy-grade second opinion. Typically 30–60 minutes.
+
+After the user replies, read **only** the matching workflow file:
+
+- Reply "1" → @references/workflows/conversational.md
+- Reply "2" → @references/workflows/intake-checklist.md
+- Reply "3" → @references/workflows/full-workflow.md
+- Reply "4" → @references/workflows/mode-4-review-existing.md
+
+**Allow mode switching mid-session** — re-offer the four-mode prompt and transition without losing collected context.
+
+## When this rule applies
+
+Activate for any question about:
+
+- Federal unsolicited proposals to U.S. federal agencies
+- FAR Subpart 15.6 (FAR 15.603, 15.605, 15.606, 15.609)
+- The six-part eligibility test in FAR 15.603(c)
+- The FAR 15.609 proprietary data legend
+- Sole-source federal pitching or submitting an unrequested idea to a federal agency
+- Preparing an unsolicited proposal to ONR, DCSA, USSOCOM, MCSC, GSA PBS, OPM, FEMA, VA, or EPA
+
+Do **not** activate for RFP/RFI/RFQ responses, SBIR/STTR applications, BAAs, OTAs, GSA Schedule work, or subcontracting — those are different procurement paths.
+
+## The one rule that cannot be skipped
+
+An idea only qualifies as an unsolicited proposal under FAR Subpart 15.6 if it passes **all six** tests in FAR 15.603(c):
+
+1. **Innovative and unique** — not a me-too of something already funded or on a Schedule
+2. **Independently originated and developed** by the offeror, without government direction
+3. **Prepared without government supervision**
+4. **Sufficient detail** (technical and cost) for meaningful evaluation
+5. **Does not duplicate an existing agency effort**
+6. **Not an advance proposal for a known requirement** — if the agency has published an RFP or sources-sought, respond through that channel instead
+
+If any test fails, tell the user clearly, explain why, and recommend the correct alternative channel (SBIR/STTR, BAA, OTA, sources-sought, GSA Schedule, subcontracting). Do not dress up a non-qualifying idea as an unsolicited proposal.
+
+## How to consult the full kit
+
+The comprehensive rules and all nine sample proposals live at:
+
+@AGENTS.md
+@references/guide.md
+
+When the user asks for help with a specific situation, consult the matching sample(s):
+
+- General Sample 1 (Innovation/R&D): @references/general-samples/01-innovation-rd.md
+- General Sample 2 (Mission-Solution, most broadly applicable): @references/general-samples/02-mission-solution.md
+- General Sample 3 (Crisis/Rapid-Response): @references/general-samples/03-crisis-rapid-response.md
+- DCSA (SentinelMind): @references/specific-samples/01-sentinelmind-dcsa.md
+- USSOCOM (NeuroEdge): @references/specific-samples/02-neuroedge-ussocom.md
+- MCSC (ForgeForward — key teaching example): @references/specific-samples/03-forgeforward-mcsc.md
+- GSA PBS (FedFacility IQ): @references/specific-samples/04-fedfacility-iq-gsa-pbs.md
+- OPM (LeadFed): @references/specific-samples/05-leadfed-opm.md
+- FEMA (ReadyRelief): @references/specific-samples/06-readyrelief-fema.md
+
+After the user picks a workflow mode at the entry point, load **only** the matching workflow file:
+
+- Mode 1 (Conversational): @references/workflows/conversational.md
+- Mode 2 (Intake Checklist): @references/workflows/intake-checklist.md
+- Mode 3 (Full Workflow): @references/workflows/full-workflow.md
+- Mode 4 (Review Existing Proposal): @references/workflows/mode-4-review-existing.md
+
+All modes inherit three shared files:
+
+- Shared intake fields (used by Modes 2 and 3): @references/workflows/intake-fields.md
+- Shared output rendering pipeline (used by all 4 modes): @references/workflows/render-output.md
+- Shared writing rules / banned phrases (used by all 4 modes): @references/workflows/writing-rules.md
+
+## Core drafting rules
+
+1. **Cite the FAR next to every rule** and always point the user to <https://www.acquisition.gov/far/subpart-15.6> for verification.
+2. **Every sample is fictional.** Never leak fictional company names, personnel, patent numbers, pilot data, or prices into a real submission.
+3. **The FAR 15.609 proprietary data legend** (guide.md Section 7) must appear on the cover page AND on each restricted page if the user wants IP protection.
+4. **Cost realism matters.** Push for labor hours, rates, subcontractor cost, ODCs, and G&A — not just a top-line number.
+5. **Educational, not legal advice.** Recommend a contracts or procurement attorney review the final document before submission.
+
+## Adaptation workflow
+
+The detailed workflow steps live in the workflow files referenced above (`@references/workflows/conversational.md`, `@references/workflows/intake-checklist.md`, `@references/workflows/full-workflow.md`). After the user picks a mode, follow that mode's playbook exactly. All three modes share the same core inheritance:
+
+1. Run the FAR 15.603(c) six-part test. If any test fails, stop and recommend the alternative channel.
+2. Pick the closest template using the decision tree in `guide.md` Section 12.
+3. Walk through the guide section by section — never dump it all at once.
+4. Use samples as structural scaffolding only — never lift fictional names, numbers, patents, or personnel.
+5. Final check with `guide.md` Appendix F (Pre-Submission Checklist).
+6. Render the final file via `@references/workflows/render-output.md` (asks Word .docx or PDF, produces the deliverable).
+
+## License
+
+Dual-licensed: MIT for code/config, CC BY 4.0 for written content. Credit Govafy.com when adapting or republishing the content.

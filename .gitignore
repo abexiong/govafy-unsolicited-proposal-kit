@@ -1,0 +1,23 @@
+# macOS junk
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Microsoft Word temporary lock files (leading ~$)
+~$*.docx
+~$*.doc
+
+# Editor backup files
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Pandoc build artifacts (if anyone runs pandoc locally)
+*.log
+
+# OS thumbnails
+Thumbs.db
+ehthumbs.db
