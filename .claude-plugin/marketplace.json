@@ -1,0 +1,18 @@
+{
+  "name": "govafy-plugins",
+  "owner": {
+    "name": "Govafy.com",
+    "url": "https://govafy.com"
+  },
+  "metadata": {
+    "description": "Govafy.com plugin marketplace. Currently lists the Unsolicited Proposal Kit; future plugins (solicited RFP responses, capability statements, SBIR/STTR drafting) will land here as they ship.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "govafy-unsolicited-proposal-kit",
+      "source": "./",
+      "description": "Plan, draft, or review federal unsolicited proposals under FAR Subpart 15.6. Plain-English master guide, nine fictional-but-FAR-compliant sample proposals, four-mode interactive workflow, and a writing-rules sweep."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "govafy-unsolicited-proposal-kit",
+  "version": "1.3.0",
+  "description": "Plan, draft, or review federal unsolicited proposals under FAR Subpart 15.6. Plain-English master guide, nine fictional-but-FAR-compliant sample proposals, four-mode interactive workflow (conversational / intake checklist / full workflow / review existing), and a writing-rules sweep with 77 banned phrases. Covers eligibility (FAR 15.603(c)), format (FAR 15.605), and proprietary data markings (FAR 15.609). Target agencies include ONR, DCSA, USSOCOM, MCSC, GSA PBS, OPM, FEMA, VA, EPA.",
+  "author": {
+    "name": "Govafy.com",
+    "url": "https://govafy.com"
+  },
+  "homepage": "https://github.com/abexiong/govafy-unsolicited-proposal-kit",
+  "repository": "https://github.com/abexiong/govafy-unsolicited-proposal-kit",
+  "license": "MIT AND CC-BY-4.0",
+  "keywords": [
+    "federal-contracting",
+    "unsolicited-proposals",
+    "far-subpart-15.6",
+    "small-business",
+    "government",
+    "proposal-writing"
+  ]
+}

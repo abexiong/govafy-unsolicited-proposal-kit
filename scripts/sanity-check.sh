@@ -163,6 +163,34 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+section "Check 7 — Plugin skill folder is in sync with root SKILL.md"
+# ---------------------------------------------------------------------------
+# The kit ships in two install formats: skill (reads from repo root) and
+# plugin (reads from skills/govafy-unsolicited-proposal-kit/). Root is
+# authoritative; the plugin subfolder is a mirror kept in sync by
+# scripts/sync-plugin-skill.sh. This check runs the sync and then diffs the
+# result against what's on disk — if anything changed, the committed plugin
+# mirror was stale and the PR author must run sync-plugin-skill.sh and
+# commit the result.
+PLUGIN_SKILL_DIR="skills/govafy-unsolicited-proposal-kit"
+if [ ! -d "$PLUGIN_SKILL_DIR" ]; then
+  fail "Plugin skill directory $PLUGIN_SKILL_DIR does not exist — run scripts/sync-plugin-skill.sh"
+else
+  # Compare byte-by-byte (these are plain-text Markdown files, no pandoc
+  # timestamps to worry about like in Check 6).
+  if diff -q SKILL.md "$PLUGIN_SKILL_DIR/SKILL.md" >/dev/null 2>&1; then
+    pass "Root SKILL.md matches $PLUGIN_SKILL_DIR/SKILL.md"
+  else
+    fail "Root SKILL.md has drifted from $PLUGIN_SKILL_DIR/SKILL.md — run scripts/sync-plugin-skill.sh and commit the result"
+  fi
+  if diff -rq references "$PLUGIN_SKILL_DIR/references" >/dev/null 2>&1; then
+    pass "Root references/ matches $PLUGIN_SKILL_DIR/references/"
+  else
+    fail "Root references/ has drifted from $PLUGIN_SKILL_DIR/references/ — run scripts/sync-plugin-skill.sh and commit the result"
+  fi
+fi
+
+# ---------------------------------------------------------------------------
 echo ""
 if [ "$FAIL" -eq 0 ]; then
   printf "\033[32mAll sanity checks passed.\033[0m\n"

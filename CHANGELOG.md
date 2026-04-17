@@ -6,6 +6,26 @@ The format is based loosely on [Keep a Changelog](https://keepachangelog.com/en/
 
 ---
 
+## [1.3.0] — 2026-04-17
+
+### Added
+
+- **Claude Code plugin distribution.** The kit now ships in two install formats from the same repo: the original skill format (users `git clone` into `~/.claude/skills/`) and a new plugin format (users run `/plugin marketplace add abexiong/govafy-unsolicited-proposal-kit` followed by `/plugin install govafy-unsolicited-proposal-kit`). The plugin format gives users a cleaner install, built-in `/plugin update` and `/plugin uninstall`, and (if listed) discovery via Anthropic's official plugin marketplace browser. The skill install path continues to work unchanged — v1.3.0 is additive, not a replacement.
+- **`.claude-plugin/plugin.json`** — the Claude Code plugin manifest declaring name, version, description, author, homepage, repository, license, and keywords. Skills are autodiscovered from `skills/<skill-name>/SKILL.md` per the plugin spec.
+- **`.claude-plugin/marketplace.json`** — the marketplace manifest that lists the kit as an installable plugin. Named `govafy-plugins` to allow future Govafy plugins (solicited RFP responses, SBIR/STTR drafting, capability statements) to join the same marketplace.
+- **`skills/govafy-unsolicited-proposal-kit/`** — mirror of the root `SKILL.md` and `references/` directory in the plugin-expected location. Root is authoritative; the plugin subfolder is kept in sync by `scripts/sync-plugin-skill.sh`.
+- **`scripts/sync-plugin-skill.sh`** — copies root `SKILL.md` and `references/` into the plugin subfolder. Must be run after any edit to the root skill content.
+- **Sanity `Check 7`** — verifies the plugin skill folder matches the root (byte-for-byte for the Markdown, tree-comparison for the references directory). CI blocks any merge where the two have drifted.
+- **README Option B reworked** — new "Option B — Claude Code (as a plugin — recommended)" section shows the `/plugin install` flow as the primary path. The original `git clone` skill install is preserved as "Option B-legacy" for users who prefer manual installs or need to edit the kit locally.
+
+### Architectural notes
+
+- **Why duplicate instead of symlink:** symlinks in git are supported but fragile on Windows (requires dev mode or admin) and the Claude Code plugin spec blocks path traversal via `../`. A committed duplicate with a CI drift check is the most reliable cross-platform approach. The sync script + Check 7 catch any drift before merge.
+- **No breaking changes.** All existing install paths (skill format via `git clone`, AGENTS.md for Cursor/Codex/Copilot, the Cursor native rule, direct `.docx` download for non-AI users) continue to work exactly as in v1.2.1. The plugin is a strictly additive option for Claude Code users who prefer it.
+- **Future marketplace submission.** The plugin is ready to submit to Anthropic's community plugin marketplace at [clau.de/plugin-directory-submission](https://clau.de/plugin-directory-submission). Approval there would surface the kit in Claude Code's in-app plugin browser at [claude.com/plugins](https://claude.com/plugins).
+
+---
+
 ## [1.2.1] — 2026-04-16
 
 ### Fixed

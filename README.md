@@ -13,7 +13,7 @@
   <a href="./LICENSE-CONTENT"><img alt="Content license: CC BY 4.0" src="https://img.shields.io/badge/content-CC%20BY%204.0-4A6B8A.svg"></a>
   <a href="https://agents.md"><img alt="AGENTS.md compatible" src="https://img.shields.io/badge/AGENTS.md-compatible-2EA44F.svg"></a>
   <a href="https://www.acquisition.gov/far/subpart-15.6"><img alt="FAR Subpart 15.6" src="https://img.shields.io/badge/FAR-Subpart%2015.6-1E4E8C.svg"></a>
-  <img alt="Release v1.2.1" src="https://img.shields.io/badge/release-v1.2.1-success.svg">
+  <img alt="Release v1.3.0" src="https://img.shields.io/badge/release-v1.3.0-success.svg">
 </p>
 
 <p align="center">
@@ -129,9 +129,27 @@ All three entry points point back to the same `references/` folder, so you're ne
 
 ---
 
-#### Option B — Claude Code
+#### Option B — Claude Code (as a plugin — recommended)
 
-Claude Code reads `.claude/skills/` globally, so you install the kit **once** and it works across every project.
+As of v1.3.0, the kit also ships as a native Claude Code plugin. Plugins give you a cleaner install, built-in update management, and clean uninstall — all without touching `~/.claude/skills/` manually.
+
+Inside Claude Code, run these two commands:
+
+```
+/plugin marketplace add abexiong/govafy-unsolicited-proposal-kit
+/plugin install govafy-unsolicited-proposal-kit
+```
+
+That's it. The plugin is immediately available. Test with: *"I'm a small business and I want to pitch a new idea directly to the VA without waiting for an RFP. Can I do that?"* Claude should activate and walk you through the FAR 15.603 six-part eligibility test.
+
+To update later: `/plugin update govafy-unsolicited-proposal-kit`
+To remove: `/plugin uninstall govafy-unsolicited-proposal-kit`
+
+---
+
+#### Option B-legacy — Claude Code (as a skill — still works)
+
+The original skill install path still works for users who prefer the manual approach or who want to edit the kit locally. Claude Code reads `.claude/skills/` globally, so you install the kit **once** and it works across every project.
 
 ```bash
 # macOS / Linux
@@ -147,7 +165,7 @@ cd "$HOME\.claude\skills"
 git clone https://github.com/abexiong/govafy-unsolicited-proposal-kit.git
 ```
 
-The skill is auto-discovered by Claude Code. In any new conversation, test with: *"I'm a small business and I want to pitch a new idea directly to the VA without waiting for an RFP. Can I do that?"* Claude should activate the skill and walk you through the FAR 15.603 six-part eligibility test. (If you already had Claude Code open during install, start a new session for the skill to load.)
+The skill is auto-discovered by Claude Code. Same invocation as the plugin — ask a question about unsolicited proposals and Claude activates it. (If you already had Claude Code open during install, start a new session for the skill to load.)
 
 ---
 
