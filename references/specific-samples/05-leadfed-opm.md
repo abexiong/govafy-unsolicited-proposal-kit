@@ -8,7 +8,7 @@
 >
 > **Important current context:** The Federal Executive Institute (FEI), OPM's long-standing executive development center, was dismantled in February 2025. Individual agencies continue to run OPM-approved SES Candidate Development Programs (SESCDPs) and still need training and coaching components to meet the OPM standards. In December 2025, OPM published *Ensuring Consistent and Rigorous Standards for Senior Executive Service Candidate Development Programs*, signaling tightened standards. This sample is structured to address OPM's current oversight role rather than a specific agency's SESCDP.
 >
-> **Why this sample works as a teaching example:** Services proposals — especially training and HR services — are often weakened by vague outcomes and undifferentiated approaches. This sample is structured to demonstrate measurable outcomes, a specific proprietary methodology, and a clear alignment to OPM's current policy direction.
+> **Why this sample works as a teaching example:** Services proposals — especially training and HR services — are often weakened by vague outcomes and undifferentiated approaches. This sample is structured to demonstrate measurable outcomes, a specific proprietary set of methods, and a clear alignment to OPM's current policy direction.
 
 ---
 
@@ -71,7 +71,7 @@ Ascend Federal Leadership, Inc. is a for-profit small business incorporated in D
 
 **1.3 Proprietary Data**
 
-Proprietary data on Sheets 4, 6, 8, and 10 cover the LeadFed Readiness Assessment instrument, the ECQ Coaching Protocol (proprietary methodology), pilot outcomes data from three agencies, and cost structure.
+Proprietary data on Sheets 4, 6, 8, and 10 cover the LeadFed Readiness Assessment instrument, the ECQ Coaching Protocol (proprietary methods), pilot outcomes data from three agencies, and cost structure.
 
 **1.4 Other Parties Receiving This Proposal**
 

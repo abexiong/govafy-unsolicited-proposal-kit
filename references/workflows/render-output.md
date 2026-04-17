@@ -1,6 +1,6 @@
 # Render Output — Final File Generation (PDF or Word .docx)
 
-> **Purpose.** This file is the shared output rendering pipeline used by **all three workflow modes** (Conversational, Intake Checklist, Full Workflow) at the very end of the engagement, after the proposal draft is complete and Appendix F has been run. It defines the verbatim "PDF or Word?" question, the filename convention, the pandoc commands for each format, and the fallback paths if rendering fails.
+> **Purpose.** This file is the shared output rendering pipeline used by **all four workflow modes** (Conversational, Intake Checklist, Full Workflow, Review Existing Proposal) at the very end of the engagement, after the proposal draft (or the critique report in Mode 4) is complete and Appendix F has been run. It defines the verbatim "PDF or Word?" question, the filename convention, the pandoc commands for each format, and the fallback paths if rendering fails.
 >
 > **Why this file exists.** The kit produces a draft as Markdown during the workflow. The user almost always needs the final document as a Word .docx (so they can edit, share with their attorney, and print) or a PDF (locked, ready to submit to the agency). Without this rendering step, the user would be left with a Markdown file they can't open in Word — which defeats the purpose of the workflow.
 
@@ -13,6 +13,7 @@ The agent invokes `render-output.md` at exactly one point in every workflow mode
 - **Mode 1 (Conversational):** as the closing step after the Appendix F final check
 - **Mode 2 (Intake Checklist):** after the final check section
 - **Mode 3 (Full Workflow):** as Phase 8, after Phase 7 (final sweep + fictional-data grep)
+- **Mode 4 (Review Existing Proposal):** at Step 5, to render the critique report (NOT the user's original draft — Mode 4 is read-only on the user's file). The filename convention for Mode 4 is `<company-slug>-proposal-critique-<YYYY-MM-DD>.<ext>` instead of the proposal filename.
 
 If the agent reaches the end of the workflow without invoking this file, the engagement is incomplete.
 
@@ -67,25 +68,11 @@ The agent asks the user where to save the file. Default rules:
 
 This is a final guard against the kit's #1 failure mode: a fictional company name, fictional patent number, fictional pilot result, or fictional personnel name from one of the nine sample proposals leaking into the user's real submission.
 
-The agent runs a quick grep against the draft for these markers:
+The agent reads the canonical marker list at `references/workflows/fictional-data-markers.md` and searches the entire draft for every marker listed there — every fictional company name, key personnel name, patent placeholder, email domain, CAGE code, UEI, and sample-specific pilot number across all 9 samples.
 
-```
-Axiom Sentinel | SentinelMind
-Nova Materials | ONR Sample
-Meridian Workforce
-RapidResponse Water
-NeuroEdge | POTFF Sample
-ForgeForward | X-FAB Sample
-FedFacility IQ
-LeadFed | FEI Sample
-ReadyRelief
-11,XXX,XXX | 18/YYY,YYY
-acme.example
-@axiomsentinel.example
-Dr. Priya Ramanathan | Dr. Kenji Maruyama | Sarah Whitaker | Claire Donoghue
-```
+The marker file is the **single source of truth**. It also lists the real federal program names (POTFF, X-FAB, TACFAB, PM CSS, FEI, LogVIZ, etc.) that look like sample data but are NOT — the agent must not flag those.
 
-(In Mode 3, this same grep already ran in Phase 7 against all 9 sample files. In Modes 1 and 2, this is the first time the grep runs and it functions as the safety net.)
+(In Mode 3, this same grep already ran in Phase 7 against the marker file. In Modes 1 and 2, this is the first time the grep runs and it functions as the safety net. In Mode 4, the same sweep runs as Sweep 4 of the critique report.)
 
 **If any match is found, the agent stops and asks the user to confirm whether the match is intentional** (e.g., the user genuinely happens to be named Sarah Whitaker, or the user genuinely cited a sample as a comparison). If unintentional, the agent fixes the leak before rendering.
 

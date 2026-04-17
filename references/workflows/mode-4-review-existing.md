@@ -135,19 +135,9 @@ Apply the full banned-phrase list from `writing-rules.md` Rules 1–8 against th
 
 ### Sweep 4 — Fictional-data sweep
 
-Grep the draft for any of the markers from the kit's 9 sample proposals — same list used in `render-output.md` and `full-workflow.md` Phase 7:
+Read the canonical marker list at `references/workflows/fictional-data-markers.md` and search the user's draft for every marker listed there — every fictional company name, key personnel name, patent placeholder, email domain, CAGE code, UEI, and sample-specific pilot number across all 9 samples. Same source of truth used by `full-workflow.md` Phase 7 and `render-output.md` pre-render check.
 
-- `Axiom Sentinel | SentinelMind | Dr. Priya Ramanathan | Dr. Kenji Maruyama | Sarah Whitaker | Claire Donoghue`
-- `Nova Materials | ONR sample`
-- `Meridian Workforce | VA sample`
-- `RapidResponse Water | EPA sample`
-- `NeuroEdge | POTFF | USSOCOM sample`
-- `ForgeForward | X-FAB | TACFAB | PM CSS | MCSC sample`
-- `FedFacility IQ | GSA PBS sample`
-- `LeadFed | FEI | OPM sample`
-- `ReadyRelief | FEMA sample`
-- Sample-specific numbers: `2,400 cleared users | 4.2 hours | 38 hours | 11,XXX,XXX | 18/YYY,YYY`
-- Sample email domains: `acme.example | axiomsentinel.example`
+The marker file also lists real federal program names (POTFF, X-FAB, TACFAB, PM CSS, FEI, LogVIZ, etc.) that look like sample data but are NOT — do not flag those.
 
 **Why this sweep matters in Mode 4:** the user's draft may have been written by another AI agent using this same kit (or a similar one) as scaffolding. If the previous agent accidentally left fictional data in place, this sweep catches it before the user submits something that references a company that doesn't exist.
 
@@ -180,12 +170,12 @@ Check the proposed price against the six FAR 15.606-2 evaluation factors, specif
 
 ### Sweep 7 — Appendix F pre-submission checklist
 
-Run the full 30-item checklist from `guide.md` Appendix F against the draft. For each item, mark:
+Run the full 35-item checklist from `guide.md` Appendix F against the draft. For each item, mark:
 - **Pass** — the item is complete
 - **Fail** — the item is missing or wrong
 - **Can't verify** — the item requires information outside the draft (e.g., "SAM.gov registration is active" can't be verified from the draft alone)
 
-**Output of Sweep 7:** a pass/fail count (e.g., "24 of 30 pass, 4 fail, 2 can't verify") with specifics on every fail.
+**Output of Sweep 7:** a pass/fail count (e.g., "29 of 35 pass, 4 fail, 2 can't verify") with specifics on every fail.
 
 ---
 
@@ -269,7 +259,7 @@ This list is the user's action plan. Fix these 10 things and the proposal is mea
 
 ## Sweep 7 — Appendix F pre-submission checklist
 
-[N of 30 pass count]
+[N of 35 pass count]
 
 ---
 
@@ -318,7 +308,7 @@ If the overall verdict is RETHINK, the agent offers:
 >
 > Or if you prefer, I can stay in Mode 4 for a second review pass after you've made changes on your own. Your call.
 
-Wait for user response. If they pick Mode 3, re-offer the three-mode prompt and load `references/workflows/full-workflow.md` with the collected context from the review.
+Wait for user response. If they pick Mode 3, re-offer the four-mode prompt and load `references/workflows/full-workflow.md` with the collected context from the review.
 
 ---
 

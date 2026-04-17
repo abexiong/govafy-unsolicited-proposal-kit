@@ -467,7 +467,7 @@ Disclose any organizational conflicts of interest that could affect your ability
 
 #### 6.4.7 Names and Phone Numbers of Prior Agency Contacts
 
-List every government employee you talked to in preparation for this proposal, along with their agency, office, and phone number. This is required under FAR 15.605(a)(4) and 15.605(c)(7), and the agency will use it to verify that your preliminary contact was within the limits discussed in Section 4 of this guide.
+List every government employee you talked to in preparation for this proposal, along with their agency, office, and phone number. This is required under FAR 15.605(c)(7), and the agency will use it to verify that your preliminary contact was within the limits discussed in Section 4 of this guide. (FAR 15.605(a)(4) is a separate requirement for disclosing other federal/state/local agencies *receiving the proposal* — distinct from prior agency contacts.)
 
 ---
 

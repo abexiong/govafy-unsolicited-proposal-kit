@@ -13,7 +13,7 @@
   <a href="./LICENSE-CONTENT"><img alt="Content license: CC BY 4.0" src="https://img.shields.io/badge/content-CC%20BY%204.0-4A6B8A.svg"></a>
   <a href="https://agents.md"><img alt="AGENTS.md compatible" src="https://img.shields.io/badge/AGENTS.md-compatible-2EA44F.svg"></a>
   <a href="https://www.acquisition.gov/far/subpart-15.6"><img alt="FAR Subpart 15.6" src="https://img.shields.io/badge/FAR-Subpart%2015.6-1E4E8C.svg"></a>
-  <img alt="Release v1.2.0" src="https://img.shields.io/badge/release-v1.2.0-success.svg">
+  <img alt="Release v1.2.1" src="https://img.shields.io/badge/release-v1.2.1-success.svg">
 </p>
 
 <p align="center">
@@ -73,7 +73,7 @@ flowchart TD
     class Start start
 ```
 
-Full explanation of each test with FAR citations is in [`references/guide.md`](./references/guide.md) Section 3, and the eligibility self-assessment worksheet is in Appendix E.
+Full explanation of each test with FAR citations is in [`references/guide.md`](./references/guide.md) Section 2, and the eligibility self-assessment worksheet is in Appendix E.
 
 ---
 
@@ -147,7 +147,7 @@ cd "$HOME\.claude\skills"
 git clone https://github.com/abexiong/govafy-unsolicited-proposal-kit.git
 ```
 
-Restart Claude Code and test with: *"I'm a small business and I want to pitch a new idea directly to the VA without waiting for an RFP. Can I do that?"* Claude should automatically activate the skill and walk you through the FAR 15.603 six-part eligibility test.
+The skill is auto-discovered by Claude Code. In any new conversation, test with: *"I'm a small business and I want to pitch a new idea directly to the VA without waiting for an RFP. Can I do that?"* Claude should activate the skill and walk you through the FAR 15.603 six-part eligibility test. (If you already had Claude Code open during install, start a new session for the skill to load.)
 
 ---
 

@@ -215,7 +215,7 @@ The draft uses the structural scaffolding from the chosen template (Phase 2) but
 - Section 2.6 — Key personnel (with real bios from resumes)
 - Section 2.7 — Type of support needed from the government
 
-**4g. Sample-comparison checkpoint.** Before declaring Phase 4 complete, the agent compares the drafted §2.6 (Key Personnel) against the matching sample's §2.6. If the user's bios have fewer specifics than the sample's fictional bios — missing degree discipline, missing institution, missing years of experience, missing commitment percentage, missing clearance status — the agent goes back and asks for those details. The sample is the quality floor, not the ceiling. Every named person in the user's proposal should have at least as much concrete detail as the fictional characters in the sample.
+**4g. Sample-comparison checkpoint.** Before declaring Phase 4 complete, the agent compares the drafted §2.6 (Key Personnel) against the matching sample's §2.6 — **but only at the structural level, never lifting actual content**. The check is: does each user-named person have the same *categories* of detail the sample bios contain (degree discipline, institution, years of experience, commitment percentage, clearance status)? If the user's bios are missing any of those categories, the agent asks for the missing data — *from the user, not from the sample*. The sample is the quality floor for what to ask about, never a fallback source for actual values. If the user can't provide a value, the agent leaves a bracketed placeholder and surfaces it via the bracket-count quality gate below — it does NOT pull a value from the sample to "complete" the field. Every fact in the user's draft must trace to the user.
 
 **4h. Sign-off gate.** *"Phase 4 complete. Part 2 (Technical Information) is drafted. [One-line summary]. Ready to proceed to Phase 5 — drafting Part 3 (Supporting Information)?"* Wait for confirmation. **Apply the bracket-count quality gate** before using this sign-off — see the Sign-off gate template section below.
 
@@ -338,13 +338,13 @@ This is the most important phase in Mode 3. It's where strategic and mechanical 
 
 ### What the agent does
 
-**7a. Run `guide.md` Appendix F (Pre-Submission Checklist)** out loud, all 30 items, every one a real failure mode observed on rejected proposals. The agent walks through each item and confirms with the user that it's complete. Categories:
+**7a. Run `guide.md` Appendix F (Pre-Submission Checklist)** out loud, all 35 items, every one a real failure mode observed on rejected proposals. The agent walks through each item and confirms with the user that it's complete. Categories:
 
 - **Content** (8 items: title length, abstract, objectives, technical approach, anticipated results, mission support, key personnel, government support)
 - **Cost and business terms** (5 items: price specificity, cost breakdown, validity, contract type, duration)
 - **Basic Information / FAR 15.605(a)** (7 items: offeror, certifications, POCs, proprietary data identification, other agencies, date, signature)
 - **IP protection / FAR 15.609** (4 items: title-page legend verbatim, page numbers, per-sheet legend, no over-marking)
-- **Administrative** (6 items: past performance, COI, prior contacts, SAM.gov, agency address verified, format, submission log)
+- **Administrative** (7 items: past performance, COI, prior contacts, SAM.gov, agency address verified, format, submission log)
 - **Sanity checks** (4 items: re-ran eligibility, re-read kill-shot list, re-checked SAM.gov, proofread by another person)
 
 **Checklist enforcement rule:** When Appendix F identifies a "Fail" or "Revise" item, the agent MUST either (a) fix it immediately by going back to the relevant section and making the change, or (b) present the specific failure to the user and get explicit acknowledgment that they want to proceed with the gap. Logging a failure in a table and moving on to the next phase is not acceptable — that defeats the purpose of the checklist. The most common failures the agent should fix in place: abstract too short or missing cost (expand it), mission support statement missing citations (add them or ask the user for sources), POC fields still blank (ask the user now). If the user says "I'll fix that later after I download the document," that counts as explicit acknowledgment — note it and move on.
@@ -357,22 +357,9 @@ This is the most important phase in Mode 3. It's where strategic and mechanical 
 
 Any Rule 2 (Boasting) hit is treated as high severity and flagged at the top of the sweep report — these directly hurt the FAR 15.603(c)(1) eligibility argument. The user can override any flag but must do so knowingly.
 
-**7c. Run the fictional-data grep.** This is the kit's strongest defense against the #1 failure mode. The agent searches the entire draft for any of these markers from the kit's 9 sample proposals:
+**7c. Run the fictional-data grep.** This is the kit's strongest defense against the #1 failure mode. The agent reads the canonical marker list at `references/workflows/fictional-data-markers.md` and searches the entire draft for every marker listed there — every fictional company name, key personnel name, patent placeholder, email domain, CAGE code, UEI, and sample-specific pilot number across all 9 samples.
 
-```
-Axiom Sentinel | SentinelMind | Dr. Priya Ramanathan | Dr. Kenji Maruyama | Sarah Whitaker | Claire Donoghue
-Nova Materials | ONR sample
-Meridian Workforce | VA sample
-RapidResponse Water | EPA sample
-NeuroEdge | POTFF | USSOCOM sample
-ForgeForward | X-FAB | TACFAB | PM CSS | MCSC sample
-FedFacility IQ | GSA PBS sample
-LeadFed | FEI | OPM sample
-ReadyRelief | FEMA sample
-11,XXX,XXX | 18/YYY,YYY     (sample patent number patterns)
-acme.example | axiomsentinel.example     (sample email domains)
-2,400 cleared users | 4.2 hours | 38 hours     (sample-specific numbers)
-```
+The marker file is the **single source of truth**. Do not maintain a separate copy of the list inline — read `fictional-data-markers.md` directly so the grep always reflects the latest sample inventory. The same file also lists the real federal program names that look like sample data but are NOT (POTFF, X-FAB, TACFAB, PM CSS, FEI, LogVIZ, etc.) — the agent must NOT flag those.
 
 **If any match is found**, the agent stops and asks the user: *"I found '[match]' in the draft. This appears in [sample name]. Is this an intentional reference, or did it leak from the scaffolding sample? If it leaked, I'll fix it before we render."*
 
@@ -400,7 +387,7 @@ The agent presents all five findings in the same format:
 
 **7e. Verify the agency submission address.** The agent confirms with the user that they have checked the target agency's website (e.g., dcsa.mil) for the current submission POC on or near the day of submission. FAR 15.606 delegates this to each agency and addresses change without warning.
 
-**7f. Sign-off gate.** *"Phase 7 complete. Appendix F all 30 items confirmed. Writing-rules sweep returned [N] violations [resolved / user-overridden]. Fictional-data grep returned [zero matches / N matches resolved]. Red-team sweep produced 5 findings [resolved / N user-overridden]. Submission address verified. Ready to proceed to Phase 8 — output rendering?"* Wait for confirmation.
+**7f. Sign-off gate.** *"Phase 7 complete. Appendix F all 35 items confirmed. Writing-rules sweep returned [N] violations [resolved / user-overridden]. Fictional-data grep returned [zero matches / N matches resolved]. Red-team sweep produced 5 findings [resolved / N user-overridden]. Submission address verified. Ready to proceed to Phase 8 — output rendering?"* Wait for confirmation.
 
 ---
 
@@ -484,7 +471,7 @@ The agent surfaces these reminders at the right moments during the workflow. The
 If the user wants to switch modes mid-workflow:
 
 1. Acknowledge the switch
-2. Re-offer the three-mode selection from the kit's entry point
+2. Re-offer the four-mode selection from the kit's entry point
 3. After the user picks, transition to the new workflow file **without losing the context already collected**. For example, if the user is in Phase 4 of Mode 3 and switches to Mode 1, the agent carries forward:
    - The eligibility verdict (from Phase 1)
    - The chosen template (from Phase 2)

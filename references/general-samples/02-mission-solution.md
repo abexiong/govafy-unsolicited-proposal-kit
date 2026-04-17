@@ -164,7 +164,7 @@ Meridian will perform the core analytics and platform configuration work at its 
 - **On-site workspace** at each of the three pilot regional hiring centers for one embedded Meridian specialist during Phase 2 (approximately 9 months per site).
 - **Designated VA HR&A executive sponsor** for the pilot (approximately 2–4 hours per month for steering committee meetings).
 - **Designated point of contact at each pilot site** for daily coordination (HR center leadership or equivalent).
-- **VA information system access** sufficient to allow Meridian staff to operate within the agency network where required; all Meridian staff to be assigned to the effort will complete VA background investigations and training requirements prior to beginning work.
+- **VA information system access** sufficient to allow Meridian staff to operate within the agency network where required; all Meridian staff to be assigned to the effort will complete VA background investigations and training requirements before beginning work.
 
 ---
 

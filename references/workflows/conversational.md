@@ -112,7 +112,7 @@ The user can override any flag if they insist, but the agent must explain the ru
 
 When the draft is complete, the agent does four things in order:
 
-1. **Run Appendix F (Pre-Submission Checklist).** Walk the user through all 30 items in `guide.md` Appendix F. Every item is a real failure mode observed on rejected proposals. If any item is unchecked, the agent fixes it before proceeding.
+1. **Run Appendix F (Pre-Submission Checklist).** Walk the user through all 35 items in `guide.md` Appendix F. Every item is a real failure mode observed on rejected proposals. If any item is unchecked, the agent fixes it before proceeding.
 
 2. **Run the writing-rules sweep.** Grep the completed draft against the banned-phrase list in `references/workflows/writing-rules.md`. Any hit is surfaced with the rule category, the reason, and a suggested replacement. The user has the final say on flagged phrases.
 
@@ -129,7 +129,7 @@ After rendering, the engagement is complete. The agent offers to help with relat
 If at any point the user says they want to switch modes — for example, *"actually, let's drop to the intake checklist"* or *"I want the full workflow with sign-off gates"* — the agent does the following:
 
 1. Acknowledge the switch
-2. Re-offer the three-mode selection question from the kit's entry point
+2. Re-offer the four-mode selection question from the kit's entry point
 3. After the user picks, transition to the new workflow file **without losing the context already collected**. For example, if the user already answered the eligibility questions in Mode 1, the agent does not re-ask them in Mode 2 — it carries the answers forward
 4. Continue from the appropriate point in the new workflow
 

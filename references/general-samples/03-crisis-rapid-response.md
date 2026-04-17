@@ -183,7 +183,7 @@ Three Grade III/IV Water Treatment Operators (one per region) and six field tech
 **2.7 Type of Support Needed from the Government**
 
 - **Coordination with EPA Regional Response Coordinators** in Phase 1 to identify suitable pre-staging locations.
-- **EPA technical review and acceptance** of the treatment train design and test data prior to pre-staging.
+- **EPA technical review and acceptance** of the treatment train design and test data before pre-staging.
 - **EPA regional and state primacy agency introductions** to build relationships with the agencies that would likely activate the units during a real emergency.
 - **Designated EPA activation point of contact** for the 24/7 activation line.
 

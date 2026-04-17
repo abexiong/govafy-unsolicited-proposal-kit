@@ -129,6 +129,8 @@ These are words that sound like they mean something but actually don't. The eval
 | *"our highest priority," "our mission is to"* | Your internal priorities are irrelevant. Describe what the proposal will deliver. |
 | *"trustworthy"* | If you have to say it, the evaluator now doubts it. Demonstrate trustworthiness through past performance, clearances, and specific references. |
 | *"we would be honored"* | Empty feeling word. Make the proposal about the customer, not your feelings. |
+| *"maximize," "minimize," "optimize"* | Means nothing without a number. *"Optimize cost"* tells the evaluator nothing; *"reduce O&M cost by 18%"* is a real claim. |
+| *"we can provide"* | Either you will provide it (in which case say so) or you won't. "Can" signals you're hedging on the commitment. |
 
 **The fix for all of Rule 3:** turn every intention into a specific deliverable with a measurable outcome. *"We are committed to quality"* → *"We will deliver a formal effectiveness assessment with an independent technical panel review at month 22."*
 
@@ -142,8 +144,10 @@ Federal proposal writing defaults to bureaucratic noun constructions — "held a
 |---|---|
 | arrived at the conclusion | concluded |
 | gave a demonstration | demonstrated |
+| gave an explanation | explained |
 | performed an analysis of | analyzed |
 | has a requirement for | requires |
+| has a need for | needs |
 | held a meeting | met |
 | made a payment | paid |
 | reached an agreement | agreed |
@@ -169,6 +173,13 @@ Evaluator attention is a limited resource. Every extra word in your proposal cos
 | in an effort to | to |
 | on a monthly basis | monthly |
 | a number of | several |
+| able to | can |
+| capable of | can |
+| any and all | all, any, every (or leave out) |
+| if and when | if |
+| in addition | also |
+| consequently | so |
+| furthermore | then, also |
 | past experience | experience |
 | end result | result |
 | new innovation | innovation |
@@ -191,12 +202,16 @@ Latinate vocabulary sounds educated but reads slower and scores lower on compreh
 | Long | Short |
 |---|---|
 | utilize | use |
+| utilization | use |
 | methodology | methods |
 | ascertain | learn, find out |
 | endeavor | try |
 | encompass | include, cover |
 | initiate | start, begin |
 | terminate | end, stop |
+| termination | end |
+| modification | change |
+| obfuscate | hide, confuse (or, better, *clarify* in a positive frame) |
 | substantial | large |
 | subsequent | after, later |
 | facilitate | help, allow |
@@ -249,9 +264,11 @@ The sweep does not block the output file from being rendered. It only surfaces i
 
 ## Inheritance rule
 
-This file is **additional to**, not a replacement for, Govafy.com's full proposal writing guide. The full guide covers ~180 rules across 10 categories including slang, unnecessary qualifiers, and the complete redundant-phrase list. This light version is the subset the AI agent applies automatically during drafting and review of unsolicited proposals specifically.
+This file is **additional to**, not a replacement for, Govafy.com's full proposal writing guide. The full guide covers ~180 rules across 10 categories including the **Slang** category and the **Unnecessary Qualifiers** category (~40 phrases such as *actually, certainly, definitely, kind of, more or less, needless to say, sort of, totally, very*) — neither of which is enforced automatically here because federal evaluators tend to skim past those without losing comprehension, while the rules above directly hurt eligibility credibility.
 
-If a user wants the full guide, point them to Govafy.com.
+This light version is the subset the AI agent applies automatically during drafting and review of unsolicited proposals specifically. The 8 rules above cover the high-frequency, high-impact phrases — boasting language that hurts the FAR 15.603(c)(1) "innovative and unique" argument, weak intention words that invite skepticism, and the redundant constructions that waste evaluator attention.
+
+If a user wants the full guide — including the Slang and Unnecessary Qualifiers categories — point them to Govafy.com.
 
 ---
 

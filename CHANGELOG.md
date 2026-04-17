@@ -6,6 +6,48 @@ The format is based loosely on [Keep a Changelog](https://keepachangelog.com/en/
 
 ---
 
+## [1.2.1] — 2026-04-16
+
+### Fixed
+
+- **Fictional-data anti-bleed grep was missing five of the nine sample company names** (Apex Cognitive Labs, IronForge Manufacturing, Civic Energy Insights, Ascend Federal Leadership, Predictive Resilience), most key personnel from Specific Samples 2–6, three patent placeholder patterns (`18/XXX,XXX`, `18/ZZZ,ZZZ`, `18/WWW,WWW`), and five sample email domains. This was the kit's single largest functional defect — the grep is the primary defense against the kit's #1 failure mode (sample data leaking into a real submission), and it was missing more than half the data it was supposed to catch. New file `references/workflows/fictional-data-markers.md` is the single source of truth; `full-workflow.md` Phase 7, `render-output.md` pre-render check, and `mode-4-review-existing.md` Sweep 4 now reference it instead of maintaining their own (drifted) copies.
+- **Phantom marker `acme.example`** removed from the grep — it was listed as a sample email domain but never appeared in any actual sample.
+- **Wrong guide section number** in `SKILL.md`, `AGENTS.md`, and `README.md` — all three said "Section 3" for the FAR 15.603(c) eligibility test. The guide actually places the test in Section 2; Section 3 is "The Reality Check."
+- **Wrong Appendix F item count** — `conversational.md`, `intake-checklist.md`, `full-workflow.md` (twice), and `mode-4-review-existing.md` (twice) all claimed "30 items." Actual count is 35 (Content 8, Cost 5, Basic Info 7, IP 4, Administrative 7, Sanity 4). Mode 3 Phase 7a's "Administrative (6 items)" subhead also corrected to 7.
+- **"Three modes" boilerplate** in `SKILL.md`, `AGENTS.md`, the Cursor rule, `conversational.md`, `intake-checklist.md`, `full-workflow.md`, and `mode-4-review-existing.md` updated to "four modes" / "four-mode selection" — leftover language from before Mode 4 was added in v1.1.0.
+- **`render-output.md` scope statement** updated to include Mode 4. The intro and "When to invoke" sections previously named only Modes 1, 2, and 3 even though Mode 4 also calls render-output.md to produce the critique report.
+- **Wrong FAR sub-citation** at `guide.md` Section 6.4.7. "Prior agency contacts" was attributed to "FAR 15.605(a)(4) and 15.605(c)(7)" — only (c)(7) is correct. (a)(4) covers a different requirement (other agencies *receiving* the proposal).
+- **`README.md` install instruction** for Claude Code no longer says "restart Claude Code" — modern Claude Code auto-discovers skills.
+
+### Added
+
+- **`references/workflows/fictional-data-markers.md`** — the single source of truth for the anti-bleed grep. Lists every fictional company, person, patent placeholder, email domain, CAGE code, UEI, and sample-specific pilot number across all 9 samples, plus a "real terms NOT to flag" list (POTFF, X-FAB, TACFAB, PM CSS, FEI, LogVIZ, etc.) so the grep doesn't generate false positives on real federal program names. Includes a maintainer rule: when adding a new sample, the maintainer MUST add the new sample's markers to this file.
+- **`scripts/sanity-check.sh`** — a small CI-friendly shell script with **6 checks** that catch every category of regression this release fixed: (1) Appendix F checkbox count matches every claim, (2) every sample's fictional company name is in the marker file, (3) `SKILL.md` / `AGENTS.md` / `README.md` cite the right guide section for the eligibility test, (4) no stale "three-mode" boilerplate, (5) no phantom `acme.example` marker, (6) **every `downloads/*.docx` is in sync with its `references/*.md` source** (text-content comparison, tolerant of pandoc-version table-formatting differences). Run before every release.
+- **`scripts/regen-docx.sh`** — regenerates all 10 `.docx` files in `downloads/` from their Markdown sources via pandoc. Required after editing any `references/**/*.md` file. Maintains the explicit `.md → .docx` filename mapping in one place. Add a new line to the `PAIRS` array when introducing a new sample.
+- **GitHub Action wiring (`.github/workflows/sanity-check.yml`)** is staged for a follow-up commit — it requires the maintainer's GitHub OAuth token to carry the `workflow` scope. The workflow file itself runs `bash scripts/sanity-check.sh` on every PR and push to `main`, with pandoc pre-installed. Until it's wired in, run `bash scripts/sanity-check.sh` locally before every PR.
+
+### Changed
+
+- **Mode 3 Phase 4 sample-comparison checkpoint** tightened with an explicit "structural comparison only, never lift content" guardrail. Earlier wording could be read as permission to pull values from the sample to complete missing user fields. The new wording makes it explicit that missing user data becomes a bracketed placeholder caught by the bracket-count gate, never a fallback to sample content.
+- **`writing-rules.md` expanded** to close the highest-frequency gaps relative to Govafy.com's full *100 Words to Avoid in Proposals* source document. Added 15 phrases across four rules: Rule 3 (*maximize, minimize, optimize, we can provide*); Rule 4 (*gave an explanation → explained, has a need for → needs*); Rule 5 (*able to → can, capable of → can, any and all → all/any/every, if and when → if, in addition → also, consequently → so, furthermore → then/also*); Rule 6 (*utilization → use, modification → change, termination → end, obfuscate → hide/confuse*). The closing "Inheritance rule" section now explicitly names the two categories the kit deliberately leaves out (Slang and Unnecessary Qualifiers) and explains why — to keep the sweep fast and focused on the phrases that actually hurt eligibility credibility, while pointing users to the full Govafy guide for the complete ~180-rule list.
+
+- **Sample-prose cleanup against the kit's own writing rules.** A spot-check of the 9 sample proposals against the (newly expanded) banned-phrase list found 5 prose violations across 4 samples — the samples were teaching one set of rules in `writing-rules.md` while practicing another in their own narrative paragraphs. Fixed:
+   - `references/general-samples/02-mission-solution.md` — "prior to beginning work" → "before beginning work"
+   - `references/general-samples/03-crisis-rapid-response.md` — "prior to pre-staging" → "before pre-staging"
+   - `references/specific-samples/01-sentinelmind-dcsa.md` — "prior to beginning work" → "before beginning work"
+   - `references/specific-samples/05-leadfed-opm.md` — "proprietary methodology" → "proprietary set of methods" (Note to Readers block) and "(proprietary methodology)" → "(proprietary methods)" (proposal body, §1.3)
+   The 7 uses of "in accordance with" in the samples were left intact — all 7 are conventional regulatory citations (e.g., *"marked in accordance with FAR 15.609(b)"*) and federal evaluators expect that exact phrasing for citing FAR.
+
+### Regenerated
+
+- **5 `.docx` files in `downloads/`** regenerated from the updated Markdown via `scripts/regen-docx.sh` (pandoc): General Sample 2, General Sample 3, Specific Sample 1, Specific Sample 5 (sample-prose cleanup) and the master guide (FAR 15.605(a)(4) citation fix). The other 5 `.docx` files (General Sample 1 and Specific Samples 2/3/4/6) were not regenerated because their underlying Markdown was unchanged in this release. Verified with the new `sanity-check.sh` Check 6 that all 10 `.docx` files now match their `.md` source.
+
+### Architectural notes
+
+- Per `downloads/README.md`, the Markdown files in `references/` remain the authoritative source of truth. The `.docx` files in `downloads/` are a downstream rendering — when the Markdown changes, the corresponding `.docx` is regenerated with `pandoc <file>.md -o <file>.docx --standalone`.
+
+---
+
 ## [1.2.0] — 2026-04-12
 
 ### Added

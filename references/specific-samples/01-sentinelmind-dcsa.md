@@ -217,7 +217,7 @@ Axiom Sentinel, Inc. was founded in 2019 and specializes in behavioral biometric
 
 **Conflicts of Interest:** Axiom Sentinel is not aware of any organizational conflicts of interest. Axiom Sentinel does not currently provide insider threat analytics services to either of the DCSA oversight organizations the pilot would engage with.
 
-**Security Clearances:** Axiom Sentinel holds a TS facility clearance and can handle classified data up to the Top Secret level. All staff assigned to this effort will hold active TS or TS/SCI clearances prior to beginning work at the pilot sites.
+**Security Clearances:** Axiom Sentinel holds a TS facility clearance and can handle classified data up to the Top Secret level. All staff assigned to this effort will hold active TS or TS/SCI clearances before beginning work at the pilot sites.
 
 **Environmental Impacts:** None.
 

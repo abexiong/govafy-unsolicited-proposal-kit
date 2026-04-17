@@ -113,7 +113,7 @@ All modes inherit three shared files:
 
 ## Adaptation workflow
 
-The detailed workflow steps live in the workflow files referenced above (`@references/workflows/conversational.md`, `@references/workflows/intake-checklist.md`, `@references/workflows/full-workflow.md`). After the user picks a mode, follow that mode's playbook exactly. All three modes share the same core inheritance:
+The detailed workflow steps live in the workflow files referenced above (`@references/workflows/conversational.md`, `@references/workflows/intake-checklist.md`, `@references/workflows/full-workflow.md`, `@references/workflows/mode-4-review-existing.md`). After the user picks a mode, follow that mode's playbook exactly. All four modes share the same core inheritance:
 
 1. Run the FAR 15.603(c) six-part test. If any test fails, stop and recommend the alternative channel.
 2. Pick the closest template using the decision tree in `guide.md` Section 12.

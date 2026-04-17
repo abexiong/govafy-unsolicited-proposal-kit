@@ -89,7 +89,7 @@ All reference paths below are relative to this `AGENTS.md` file. Load files only
 ### The master guide (single source of truth)
 
 - **`./references/guide.md`** — 12 numbered sections and 9 appendices covering every rule, process, and template. Read the section matching the user's current question. Key sections:
-  - **Section 3** — the FAR 15.603(c) six-part eligibility test in plain English
+  - **Section 2** — the FAR 15.603(c) six-part eligibility test in plain English
   - **Section 6** — the two-part proposal format required by FAR 15.605
   - **Section 7** — the FAR 15.609 proprietary data legend (exact text and placement rules)
   - **Section 8** — writing for evaluators who did not ask to receive your proposal
@@ -149,7 +149,7 @@ These are the operational playbooks loaded based on the mode the user picked at 
 
 ## How to adapt the kit to a user's real situation
 
-The detailed adaptation logic lives in the workflow files under `./references/workflows/`. After the user picks a mode at the entry point above, follow that mode's playbook exactly. All three modes share the same core inheritance:
+The detailed adaptation logic lives in the workflow files under `./references/workflows/`. After the user picks a mode at the entry point above, follow that mode's playbook exactly. All four modes share the same core inheritance:
 
 1. **Diagnose eligibility first** using the FAR 15.603(c) six-part test. If any test fails, stop and recommend the alternative channel.
 2. **Pick the closest template** using the decision tree in `guide.md` Section 12.

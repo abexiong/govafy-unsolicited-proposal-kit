@@ -230,7 +230,7 @@ If the user pastes their own content during drafting, the agent flags any banned
 
 ## Step 7 — Final check (Appendix F + writing-rules sweep)
 
-The agent runs `guide.md` Appendix F (Pre-Submission Checklist) — all 30 items, every one a real failure mode observed on rejected proposals. The agent walks through the checklist out loud, marking each item complete or flagging gaps.
+The agent runs `guide.md` Appendix F (Pre-Submission Checklist) — all 35 items, every one a real failure mode observed on rejected proposals. The agent walks through the checklist out loud, marking each item complete or flagging gaps.
 
 The agent also runs the **writing-rules sweep** from `references/workflows/writing-rules.md`: greps the completed draft against the banned-phrase list and surfaces any hits with the rule category, the reason, and a suggested replacement. The user has the final say on flagged phrases but has to override knowingly.
 
@@ -273,7 +273,7 @@ The agent surfaces these reminders at the right moments during the workflow, not
 If the user wants to switch modes mid-engagement:
 
 1. Acknowledge the switch
-2. Re-offer the three-mode selection question from the kit's entry point
+2. Re-offer the four-mode selection question from the kit's entry point
 3. After the user picks, transition without losing collected context. If intake Groups A–F are already done, the new mode picks up at Group G or wherever drafting was paused
 4. Continue from the appropriate point in the new workflow
 
