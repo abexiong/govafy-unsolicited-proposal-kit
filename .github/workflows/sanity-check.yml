@@ -1,0 +1,25 @@
+name: Sanity check
+
+# Runs the kit's sanity-check.sh on every PR and on every push to main.
+# The script catches the regressions documented in v1.2.1 (Appendix F count
+# drift, missing fictional-data markers, wrong section numbers, stale
+# "three-mode" boilerplate, and stale .docx files in downloads/).
+# No untrusted input is used in any step.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+      - name: Run sanity check
+        run: bash scripts/sanity-check.sh
