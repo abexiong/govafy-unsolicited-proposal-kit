@@ -139,14 +139,16 @@ else
       fail "Target $docx is missing — run scripts/regen-docx.sh"
       continue
     fi
-    # Extract text from both sides and normalize aggressively so we compare
-    # WORDS, not formatting. Specifically: strip table border lines (rows of
-    # dashes/equals from pandoc's plain-text table rendering — these vary by
-    # pandoc version even when content is identical) and collapse all
-    # whitespace to single spaces.
+    # Extract text from both sides and reduce to lowercase alphanumeric tokens
+    # only — strip ALL formatting (punctuation, em-dashes, table borders, smart
+    # quotes, capitalization). This makes the comparison invariant to pandoc
+    # version differences (Ubuntu apt pandoc vs Homebrew pandoc render text
+    # subtly differently). What we care about is: do the two documents contain
+    # the same words in the same order?
     normalize_text() {
       pandoc "$1" -t plain --wrap=none 2>/dev/null \
-        | sed -E 's/^[[:space:]]*[-=]+[[:space:]]*$//; s/[-=]{6,}/ /g' \
+        | tr '[:upper:]' '[:lower:]' \
+        | tr -c 'a-z0-9\n' ' ' \
         | tr -s '[:space:]' ' ' \
         | sed 's/^ //; s/ $//'
     }
